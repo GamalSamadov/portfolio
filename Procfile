@@ -1,1 +1,1 @@
-web: gunicorn hsoub.wsgi --log-file -
+web: gunicorn partfolio_settings.wsgi --log-file -
