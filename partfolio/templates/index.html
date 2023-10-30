@@ -1,0 +1,400 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+<html lang="{% if LANGUAGE_CODE == 'ar' %}ar{% elif LANGUAGE_CODE == 'en'  %}en{% endif %}" dir="{% if LANGUAGE_CODE == 'ar' %}rtl{% elif LANGUAGE_CODE == 'en'  %}ltr{% endif %}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="J. Samadov - Python Developer" />
+    <meta name="keywords"
+        content="blog, business card, creative, creative portfolio, cv theme, online resume, personal, portfolio, professional cv, responsive portfolio, resume, resume theme, vcard" />
+    <meta name="author" content="willy wonka" />
+    <title>{% trans "J. Samadov - Python Developer" %}</title>
+    <!--favicon-img-->
+    <link rel="icon" type="image/png" href="{% static 'images/jamol_favicon.png' %}">
+    <!--favicon-img-->
+    <!--main css file should not be removed -->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <!--main css file-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+</head>
+
+<body>
+
+    <!--contains all the div-->
+    <div id="all">
+        <!--mouse  follower-->
+        <div class="cursor"></div>
+        <!--mouse  follower-->
+        
+        <!--loader-->
+        <div id="loader">
+            <span class="color">{% trans "Jamaliddin" %}</span>{% trans "Samadov" %}
+        </div>
+        <!--loader-end-->
+       
+        <!--link-screen-->
+        <div id="breaker">
+        </div>
+        <div id="breaker-two">
+        </div>
+        <!--link-screen-->
+       
+        <!--Main-Section-->
+        
+        <!--Navigator-fullscreen-->
+        <div id="navigation-content">
+            <div class="logo">
+                <img src="{% static 'images/jamal_logo.png' %}" alt="logo">
+            </div>
+            <div class="navigation-close">
+                <span class="close-first"></span>
+                <span class="close-second"></span>
+            </div>
+            
+            <div class="navigation-links">
+                <a href="#" data-text="{% trans "HOME" %}" id="home-link">{% trans "HOME" %}</a>
+                <a href="#" data-text="{% trans "ABOUT" %}" id="about-link">{% trans "ABOUT" %}</a>
+                <a href="#" data-text="{% trans "BLOG" %}" id="blog-link">{% trans "BLOG" %}</a>
+                <a href="#" data-text="{% trans "PORTFOLIO" %}" id="portfolio-link">{% trans "PORTFOLIO" %}</a>
+                <a href="#" data-text="{% trans "CONTACT" %}" id="contact-link">{% trans "CONTACT" %}</a>
+                <form action="{% url 'set_language' %}" method="POST">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="{{ request.get_full_path|slice:'1:' }}" />
+                    {% if LANGUAGE_CODE == 'en' %}
+                        <a href="/ar{{ request.get_full_path|slice:'3:' }}" data-text="{% trans "ARABIC" %}" id="lang-link">{% trans "Change Language To" %}</a>
+                    {% elif  LANGUAGE_CODE == 'ar' %}
+                        <a href="/en{{ request.get_full_path|slice:'3:' }}" data-text="{% trans "ENGLISH" %}" id="lang-link">{% trans "Change Language To" %}</a>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+        <!--Navigator-Fullscreen END-->
+
+        <!--Home Page-->
+
+        <!--Menubar-->
+        <div id="navigation-bar">
+            <img src="{% static 'images/jamal_logo.png' %}" alt="logo">
+            <div class="menubar">
+                <span class="first-span"></span>
+                <span class="second-span"></span>
+                <span class="third-span"></span>
+            </div>
+        </div>
+        <!--Menubar End-->
+
+        <!--Header-->
+        <header id="header">
+            <div id="particles"></div>
+            <!--Social Media Links-->
+            <div class="social-media-links">
+                <a href="https://www.instagram.com/jamalsamadov_/" target="_blank">
+                    <img src="{% static 'images/instagram logo.png' %}" class="social-media" alt="instagram-logo">
+                </a>
+                <a href="https://www.youtube.com/@jamoldasturchi" target="_blank">
+                    <img src="{% static 'images/yt.png' %}" class="social-media" alt="instagram-logo">
+                </a>
+                <a href="https://www.linkedin.com/in/jamal-samadov-772bb0255/" target="_blank">
+                    <img src="{% static 'images/linkedin logo.png' %}" class="social-media" alt="linkedin-logo">
+                </a>
+                <a href="https://twitter.com/jamolsamadov" target="_blank">
+                    <img src="{% static 'images/twitter logo.png' %}" class="social-media" alt="twitter-logo">
+                </a>
+
+            </div>
+            <!--Social Media Links end-->
+            <div class="header-content">
+                <div class="header-content-box">
+                    <div class="firstline">
+                        <span class="color">{% trans "J." %} </span>
+                        {% trans "Samadov" %}
+                    </div>
+                    <div class="secondline">
+                        {% trans "I'm a" %}
+                        <span class="txt-rotate color" data-period="1200"
+                            data-rotate='[ " {% trans "Full-stack Developer." %}", " {% trans "Web Developer." %}", " {% trans "Python Developer." %}" ]'></span>
+                        <span class="slash">|</span>
+                    </div>
+                </div>
+            </div>
+            <!--header image-->
+            <div class="header-image">
+                <!-- <img src="images/me.png" alt="logo"> -->
+            </div>
+            <!--header image end-->
+        </header>
+        <!--Header End-->
+        
+        <!--HomePage End-->
+        <!--Main-Section End-->
+        
+        <!--about-->
+        <div id="about">
+        
+            <!--about content-->
+            <div id="about-content">
+                <div class="about-header">
+                    {% trans "About" %} <span class="color">{% trans "Me" %}</span>
+                    <span class="header-caption">{% trans "Get to Know" %} <span class="color"> {% trans "me." %}</span></span>
+                </div>
+                <div class="about-main">
+                    <div class="about-first-paragraph wow">
+                        <!--about description-->
+                        <span class="about-first-line">
+                            {% trans "I'm creative" %}
+                            <span class="color">{% trans "web developer" %}</span>
+                            {% trans "based in Kiev , Ukraine" %} </span>
+                        <br>
+                        <span class="about-second-line"> 
+                            {% trans "With 2 years of experience as a professional Web developer, I have acquired the skills and knowledge necessary to make your project a success. I enjoy every step while working." %}
+                        </span>
+                        <div class="cv">
+                            <a href="#"><button>{% trans "Download" %} <span class="colors">{% trans "CV" %}</span></button></a>
+                        </div>
+                    </div>
+                    <!--about picture-->
+                    <div class="about-img">
+                        <img src="{% static 'images/me_about.jpg' %}" alt="Your Image">
+                    </div>
+                </div>
+
+            </div>
+            <!--services start-->
+            <div id="services">
+                <!--services header-->
+                <div class="services-heading wow">
+                    <span class="color">{% trans "My" %}</span> {% trans "Services" %}
+                </div>
+                <!--services header end-->
+                <!--services content-->
+                <div class="services-content">
+                    <div class="service-one service wow">
+                        <div class="service-img">
+                            <img src="{% static 'images/python_white.png' %}" alt="service-one">
+                        </div>
+                        <div class="service-description">
+                            <h2>{% trans "Backend development" %}</h2>
+                            <p>{% trans "Using the Django framework and DjangoRestAPI with MySQL & PostgreSQL & Sqlite3 database systems." %}</p>
+                        </div>
+                    </div>
+                    <div class="service-two service wow">
+                        <div class="service-img">
+                            <img src="{% static 'images/js_white.png' %}" alt="service-two">
+                        </div>
+                        <div class="service-description">
+                            <h2>{% trans "Frontend development" %}</h2>
+                            <p>{% trans "With: HTML5, CSS3, JS, Bootstrap, TailwindCSS, Font Awesome." %}</p>
+                        </div>
+                    </div>
+                    <div class="service-three service wow">
+                        <div class="service-img">
+                            <img src="{% static 'images/bulb.png' %}" alt="service-three">
+                        </div>
+                        <div class="service-description">
+                            <h2>{% trans "Creative Design" %}</h2>
+                            <p>{% trans "Design landing pages, Develpment complete websites, programming internet stores, Develpment control and management systems." %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--services content end-->
+            <!--services end-->
+            <div id="skills">
+                <div class="skills-header">
+                    {% trans "My" %} <span class="color"> {% trans "Skills" %}</span>
+                </div>
+                <div class="skills-content " style="text-align: center;">
+                    <div class="skill-html skill">
+                        <div class="skill-text">
+                            <div class="html">
+                                {% trans "HTML/CSS + TailwindCSS/Bootstrap" %}
+                            </div>
+                        </div>
+                        <div class="html-prog wow prog">
+                            <div class="html-progress wow">95%</div>
+                        </div>
+                    </div>
+                    <div class="skill-html skill">
+                        <div class="skill-text">
+                            <div class="html">
+                                {% trans "Python & Django/Flask" %}
+                            </div>
+                        </div>
+                        <div class="html-prog wow prog">
+                            <div class="js-progress wow">90%</div>
+                        </div>
+                    </div>
+                    <div class="skill-html skill">
+                        <div class="skill-text">
+                            <div class="html">
+                                {% trans "JavaScript" %}
+                            </div>
+                        </div>
+                        <div class="html-prog wow prog">
+                            <div class="adobe-progress wow">83%</div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!--copyright-section You Can Remove After Downloading-->
+            <div class="footer">
+                <div class="footer-text">
+                    <img src="{% static 'images/copyright.png' %}" alt="copyright-img" class="images" height="14px"> {% trans "J. Samadov" %}
+                </div>
+            </div>
+            <!--copyright-section-->
+        </div>
+        <!--about end-->
+
+        <!--portfolio-->
+        <div id="portfolio">
+
+            <div class="portfolio-header"> <span class="color"> {% trans "My" %} </span> {% trans "Portfolio" %}
+                <span class="header-caption"> {% trans "Some Of My" %} <span class="color"> {% trans "Works" %}</span></span>
+            </div>
+            <div id="portfolio-content">
+                <div class="portfolio portfolio-first">
+                    <div class="portfolio-image">
+                        <img src="{% static 'images/hsoub_academy.jpg' %}" alt="portfolio-first">
+                    </div>
+                    <div class="portfolio-text">
+                        <h2>{% trans "Academy for selling courses" %}</h2>
+                        <p>{% trans "A project I implemented in order to obtain a certificate from Hassoub Academy. This is a copy of Hassoub Academy which sells online programming courses. You can purchase the course using a credit card. The project was implemented using Django, and Stripe was used to set up payment methods" %}</p>
+                        <div class="button"><a href="https://hsoub-exam-production.up.railway.app/en/" target="_blank"><button><span class="index"> {% trans "View Project" %}<i
+                                            class="gg-arrow-right"></i></span></button></a></div>
+                    </div>
+                </div>
+            </div>
+            <!--copyright-section You Can Remove After Downloading-->
+            <div class="footer">
+                <div class="footer-text">
+                    <img src="{% static 'images/copyright.png' %}" alt="copyright-img" class="images" height="14px"> {% trans "J. Samadov" %}
+                </div>
+            </div>
+            <!--copyright-section-->
+        </div>
+        <!--portfolio end-->
+
+        <!--blog-->
+        <div id="blog">
+           
+            <div class="blog-header"> {% trans "Blogs" %}</span>
+                <span class="header-caption"> {% trans "My Latest" %} <span class="color"> {% trans "blog posts." %}</span></span>
+            </div>
+            <div class="blog-content">
+                <div class="blogs">
+                    <a href="#">
+                        <div class="img">
+                            <img src="{% static 'images/error_smiliy.jpg' %}" alt="blog-one">
+                            <div class="blog-date">{% trans "20 Sep,23" %}</div>
+                        </div>
+                        <div class="blog-text">
+                            <h3>{% trans "No Blogs" %}</h3>
+                            <p>{% trans "I Will Post A New Blog Soon." %}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!--copyright-section You Can Remove After Downloading-->
+            <div class="footer">
+                <div class="footer-text">
+                    <img src="{% static 'images/copyright.png' %}" alt="copyright-img" class="images" height="14px"> {% trans "J. Samadov" %}
+                </div>
+            </div>
+            <!--copyright-section-->
+        </div>
+        <!--blog end-->
+
+        <!--contact-->
+        <div id="contact">
+            
+            <div class="contact-header">{% trans "Contact" %} <span class="color"> {% trans "Me" %}</span>
+                <div class="contact-header-caption"> <span class="color"> {% trans "Get" %}</span> {% trans "In Touch." %}</div>
+            </div>
+            <div class="contact-content">
+                <!--Contact form-->
+                <div class="contact-form">
+                    <div class="form-header">
+                        {% trans "Message Me" %}
+                    </div>
+                    <form id="myForm" action="#">
+                        <div class="input-line">
+                            <input id="name" type="text" placeholder="{% trans "Name" %}" class="input-name">
+                            <input id="email" type="email" placeholder="{% trans "Email" %}" class="input-name">
+                        </div>
+                        <input type="text" id="subject" placeholder="{% trans "subject" %}" class="input-subject">
+                        <textarea id="body" class="input-textarea" placeholder="{% trans "message" %}"></textarea>
+                        <button type="button" id="submit" value="send">{% trans "Submit" %}</button>
+                    </form>
+
+                </div>
+                <!--Contact form-->
+                <!--Contact information-->
+                <div class="contact-info">
+                    <div class="contact-info-header">
+                        {% trans "Contact Info" %}
+                    </div>
+                    <div class="contact-info-content">
+                        <div class="contect-info-content-line">
+                            <img src="{% static 'images/icon-name.png' %}" class="icon" alt="name-icon">
+                            <div class="contact-info-icon-text">
+                                <h6>{% trans "Name" %}</h6>
+                                <p>{% trans "Jamoliddin Samadov" %}</p>
+                            </div>
+                        </div>
+                        <div class="contect-info-content-line">
+                            <img src="{% static 'images/icon-location.png' %}" class="icon" alt="location-icon">
+                            <div class="contact-info-icon-text">
+                                <h6>{% trans "Location" %}</h6>
+                                <p>{% trans "Kiev, Ukraine" %}</p>
+                            </div>
+                        </div>
+                        <div class="contect-info-content-line">
+                            <img src="{% static 'images/icon-phone.png' %}" class="icon" alt="phone-icon">
+                            <div class="contact-info-icon-text">
+                                <h6>{% trans "Call" %}</h6>
+                                <p>+380733007171</p>
+                            </div>
+                        </div>
+
+                        <div class="contect-info-content-line">
+                            <img src="{% static 'images/icon-email.png' %}" class="icon" alt="email-icon">
+                            <div class="contact-info-icon-text">
+                                <h6>{% trans "Email" %}</h6>
+                                <p>jamaliddin7777@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Contact information end-->
+                </div>
+            </div>
+            <!--copyright-section You Can Remove After Downloading-->
+            <div class="footer">
+                <div class="footer-text">
+                    <img src="{% static 'images/copyright.png' %}" alt="copyright-img" class="images" height="14px"> {% trans "J. Samadov" %}
+                </div>
+            </div>
+            <!--copyright-section-->
+        </div>
+        <!--contact end-->
+
+    </div>
+    <!--all the divisions-->
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/particles.js' %}"></script>
+    <script src="{% static 'js/particles.min.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+   
+    <!--particles script-->
+    <script>
+        particlesJS("particles", { "particles": { "number": { "value": 40, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 }, "image": { "src": "img/github.svg", "width": 100, "height": 100 } }, "opacity": { "value": 0.5, "random": false, "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false } }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } } }, "retina_detect": true });
+    </script>
+
+</body>
+
+</html>
