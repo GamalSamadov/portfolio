@@ -99,5 +99,5 @@ Feel free to reach out to me if you have any questions or feedback!
 
 - Email: contact@samadov.dev
 - Instagram: [@samadov.dev](https://instagram.com/samadov.dev)
-- LinkedIn: [Your Name](https://linkedin.com/in/jamoliddinsamadov)
+- LinkedIn: [Eng. Samadov J.](https://www.linkedin.com/in/gamalsamadov)
 
