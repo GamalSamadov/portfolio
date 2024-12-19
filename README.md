@@ -1,15 +1,14 @@
 # My Portfolio 🚀
 
-This project showcases my work, skills, and creativity as a developer. Explore the code or visit the live site to see it in action. 😊
+This project showcases my work, skills, and creativity as a front-end developer. You can explore the code or visit the live site to see it in action. 😊
 
 ## ✨ Features
 
-- **Modern Design** 🎨 with Tailwind CSS and SASS
-- **Smooth Animations** ✨ powered by Framer Motion
-- **Interactive 3D Models** 🌀 created with Three.js
-- **Blazing Fast** ⚡ using Next.js 15
+- **Interactive 3D Model** 🌀 created with Three.js
 - **Animated 3D Element** 🧬 while scrolling
-- **Vertical Scroll Animations** 🌟
+- **Smooth Animations** ✨ powered by Framer Motion
+- **Blazing Fast** ⚡ using Next.js 15
+- **Modern Design** 🎨 with Tailwind CSS and SASS
 
 ---
 
@@ -90,7 +89,7 @@ You can customize this portfolio to make it your own! Modify components, update 
 
 ## 🤝 Contributing
 
-If you'd like to contribute, feel free to fork the repo and submit a pull request. Let's make this project even better together! 🌟
+You can fix the repo and submit a pull request if you'd like to contribute. Let's make this project even better together! 🌟
 
 ---
 
